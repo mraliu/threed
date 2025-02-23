@@ -29,20 +29,23 @@ pygame.display.set_caption("Simple Pygame Window")
 def drawray():
     maxdepth = int(playery - 0)
 
-    depth = 0
-    while depth < maxdepth:
+    for ray in range(-5, 5):
+        depth = 0
+        while depth < maxdepth:
 
-        targetx, targety = pygame.mouse.get_pos()
+            targetx, targety = pygame.mouse.get_pos()
 
-        col = int(targetx // blocksize)
-        row = int(targety // blocksize)
+            targetx = targetx - int(10/2) * (ray*2)
 
-        if map[row][col] == " ":
-            pygame.draw.line(screen, (0, 255, 0), (playerx, playery), (targetx, targety), 1)
-        else:
-            pygame.draw.line(screen, (240, 155, 89), (playerx, playery), (targetx, targety), 1)
+            col = int(targetx // blocksize)
+            row = int(targety // blocksize)
 
-        depth += 1
+            if map[row][col] == " ":
+                pygame.draw.line(screen, (0, 255, 0), (playerx, playery), (targetx, targety), 1)
+            else:
+                pygame.draw.line(screen, (240, 155, 89), (playerx, playery), (targetx, targety), 1)
+
+            depth += 1
 
 clock = pygame.time.Clock()
 running = True
