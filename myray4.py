@@ -19,7 +19,6 @@ map = ["##########",
 blocksize = 40
 mapwidth = len(map[0])
 mapheight = len(map)
-print(mapheight)
 w, h = mapwidth*blocksize, mapheight*blocksize
 border = 1
 playerx = w/2
